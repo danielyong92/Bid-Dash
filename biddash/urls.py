@@ -1,4 +1,4 @@
-"""belt_exam URL Configuration
+"""Bid-Dash URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -18,4 +18,5 @@ from django.conf.urls import url, include	# added an import!
 urlpatterns = [
     url(r'^', include('apps.homepage.urls')),	# use your app_name here
     url(r'^', include('apps.dashboard.urls')), 
+    url(r'^profile', include('apps.users.urls')),
 ]
