@@ -18,5 +18,7 @@ from django.conf.urls import url, include	# added an import!
 urlpatterns = [
     url(r'^', include('apps.homepage.urls')),	# use your app_name here
     url(r'^', include('apps.dashboard.urls')), 
-    url(r'^profile', include('apps.users.urls')),
+    url(r'^', include('apps.users.urls')),
+    url(r'^', include('apps.log_reg.urls')),
+
 ]
