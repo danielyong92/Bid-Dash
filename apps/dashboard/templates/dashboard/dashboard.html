@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Testing for dashboard</h1>
+    <div id="container">
+        <div id="navigation">
+            <div id="top">
+                <img id="logo" src="{% static 'dashboard/images/chalkboard.png' %}"><label>Bid-Dash</label>
+                <label><img id="category_icon" src="{% static 'dashboard/images/grid.png' %}">Categories</label>
+            </div>
+            <div id="mid">
+                <form>
+                    <img class="icons" src="{% static 'homepage/images/edit.png' %}">
+                    <input type="text" name="category" class="search" placeholder="Enter what you are looking for">
+                    <img class="icons" src="{% static 'homepage/images/world.png' %}">
+                    <input type="text" name="location" class="search" placeholder="Please enter your location">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
 </body>
+
 </html>
