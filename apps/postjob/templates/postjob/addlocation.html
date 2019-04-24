@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Location</title>
+    <link rel="stylesheet" href="{% static 'postjob/location.css' %}">
+</head>
+<body>
+        <form action="/btaddlocation" method="POST">
+            {% csrf_token %}
+                Location City:<br>
+                <input type="text" name="location"><br><br>
+                <input type="submit" value="Add New Location">
+              </form>
+</body>
+</html>
