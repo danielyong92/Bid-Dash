@@ -4,9 +4,59 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Bid Dash</title>
+        <title>Bid Dash - Profile</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    
     </head>
     <body>
-        <h1>Bid Dash Profile</h1>
+        <div id="container">
+
+            <div id="navigation">
+                <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4>
+                <a class="logout" href=""><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
+            </div>
+    
+            <div id="job-content">
+                <table class="table table-striped table-bordered table-light">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Max Price</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- {% for job in jobs %}
+                        <tr>
+                            <td>{{job["title"]}}</td>
+                            <td>{{job["description"]}}</td>
+                            <td>{{job["max_price"]}}</td>
+                            <td>{{job["start_datetime"]}}</td>
+                            <td>{{job["end_datetime"]}}</td>
+                        </tr>
+                        {% endfor %} -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="bid-content">
+                <table class="table table-striped table-bordered table-light">
+                    <thead>
+                        <tr>
+                            <th>Bidder</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </body>
 </html>
