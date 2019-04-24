@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.homepage',
+    'apps.postjob',
     'apps.dashboard',
     'apps.log_reg',
     'apps.users',
