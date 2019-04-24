@@ -6,19 +6,17 @@ from .models import *
 def profile(request):
 
     mysql = connectToMySQL('bid_dash')
-    query = 'INSERT INTO users (email, password, first_name, last_name) VALUES (%(email)s, %(password)s, %(first_name)s, %(last_name)s);'
-    pword = "password"
-    hashed = bcrypt.hashpw(pword.encode(), bcrypt.gensalt())
 
-    data = {
-        'email': "dy@mail.com",
-        'password': hashed.decode(),
-        'first_name': "Daniel",
-        'last_name': "Yong"
+    data = {'user_id': 1}
+    user = mysql.query_db('SELECT * FROM users WHERE id = %(user_id)s;', data)
+
+    # jobs = mysql.query_db('SELECT * FROM jobs WHERE users_id = %(user_id)s ORDER BY end_datetime;', data)
+    jobs = mysql.query_db('SELECT * FROM jobs;')
+
+    context = {
+        "user": user[0],
+        # "jobs": []
     }
+    print(user[0])
 
-    new_user_id = mysql.query_db(query, data)
-    print('NEW USER INSERTED')
-    print('New User ID: ', new_user_id)
-
-    return render(request, "users/profile.html")
+    return render(request, "users/profile.html", context)
