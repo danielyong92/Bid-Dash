@@ -13,13 +13,15 @@
 </head>
 
 <body>
+
     <div id="container">
-        <div id="navigation">
+        <div class="navigation">
             <div id="top">
                 <a>Welcome {{first_name}} {{last_name}}</a>
                 <a href="/newjob">Add New Job</a>
-                <img id="logo" src="{% static 'dashboard/images/chalkboard.png' %}"><label>Bid-Dash</label>
-                <label><img id="category_icon" src="{% static 'dashboard/images/grid.png' %}">Categories</label>
+                <a href=""><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/login"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
             </div>
             <div id="mid">
                 <form>
@@ -33,8 +35,57 @@
         </div>
 
 
+        <div class="left">
+            <h4>123+ Job Listings found...</h4>
+            <p><a href=""><img class="category_icon" src="{% static 'dashboard/images/house2.png' %}">Home</a></p>
+            <p><a href=""><img class="category_icon" src="{% static 'dashboard/images/user.png' %}">Profile</a></p>
+            <p><a href=""><img class="category_icon" src="{% static 'dashboard/images/grid.png' %}">Categories</a></p>
+        </div>
 
-    </div>
+        <div class="middle">
+            <!-- MAIN CONTENT -->
+            <div class="content">
+                <img class="icon1" src="{% static 'dashboard/images/clipboard.png' %}">
+                <a href="">Python Web Developer</a>
+                <label id="timeleft"><img class="icon2"
+                        src="{% static 'dashboard/images/hourglass.png' %}">Countdown:</label>
+                <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">Chicago |
+                    Location</label>
+                <p class="description">Description: This is just some text description for the job and some impsum lorem
+                    bullcrap and some description to fill out the space Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled<a
+                        href="">...See more</a></p>
+                <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Range: $10k-20k</p>
+                <p id="creator">By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}"><a href="">Tom
+                        Nguyen</a></p>
+                <button>BID!</button>
+            </div>
+            <!-- END CONTENT -->
+            <!-- MAIN CONTENT -->
+            <div class="content">
+                <img class="icon1" src="{% static 'dashboard/images/clipboard.png' %}">
+                <a href="">Python Web Developer</a>
+                <label id="timeleft"><img class="icon2"
+                        src="{% static 'dashboard/images/hourglass.png' %}">Countdown:</label>
+                <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">Chicago |
+                    Location</label>
+                <p class="description">Description: This is just some text description for the job and some impsum lorem
+                    bullcrap and some description to fill out the space Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled<a
+                        href="">...See more</a></p>
+                <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Range: $10k-20k</p>
+                <p id="creator">By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}"><a href="">Tom
+                        Nguyen</a></p>
+                <button>BID!</button>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+
+
+        <div class="right">
+            <img class="undraw" src="{% static 'dashboard/images/undraw1.png' %}">
+        </div>
+
 </body>
 
 </html>
