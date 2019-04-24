@@ -14,12 +14,14 @@
 }
 #job-content{
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid #fccb4e;
+    box-shadow: 5px 5px 3px black;
     margin-top: 20px;
 }
 #bid-content{
     text-align: center;
-    border: 1px solid green;
+    border: 1px solid #fccb4e;
+    box-shadow: 5px 5px 3px black;
     margin-top: 20px;
 }
 .head-title{
