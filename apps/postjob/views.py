@@ -33,3 +33,18 @@ def BTaddcategory(request):
     }
     new_category_id = mysql.query_db(query, data)
     return redirect("/dashboard")
+
+def addlocation(request):
+    return render(request, "postjob/addlocation.html")
+
+def BTaddlocation(request):
+    mysql = connectToMySQL('bid_dash')
+    query = 'INSERT INTO `bid_dash`.`addresses` (`street_address`,`city`,`state`,`zip`) VALUES (%(street_address)s,%(city)s,%(state)s,%(zip)s);'
+    data = {
+        'street_address' : '123 abc st',
+        'city' : request.POST['location'],
+        'state' : 'IL',
+        'zip' : '60630'
+    }
+    new_city_id = mysql.query_db(query, data)
+    return redirect("/dashboard")
