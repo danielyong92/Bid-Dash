@@ -30,26 +30,25 @@ def regacc(request):
     print('New User ID: ', new_user_id)
     return redirect("/dashboard")
 
-def dashboard(request):
-    if request.session['logged'] == False:
-        return redirect("/")
-    elif request.session['logged'] == True:
-        mysql = connectToMySQL('bid_dash')
-        query = "SELECT * FROM users WHERE id=%(iduser)s;"
-        data = {
-        'iduser': request.session['user_id']
-        }
-        user = mysql.query_db(query, data)
-        # print("First",user[0]["first_name"])
-        # print("Last",user[0]["last_name"])
-        # print(user)
-        content = {
-            "user": user,
-            "first_name": user[0]["first_name"],
-            "last_name": user[0]["last_name"]
-        }
-
-    return render(request, "log_reg/dashboard.html", content)
+# def dashboard(request):
+#     if request.session['logged'] == False:
+#         return redirect("/")
+#     elif request.session['logged'] == True:
+#         mysql = connectToMySQL('bid_dash')
+#         query = "SELECT * FROM users WHERE id=%(iduser)s;"
+#         data = {
+#         'iduser': request.session['user_id']
+#         }
+#         user = mysql.query_db(query, data)
+#         # print("First",user[0]["first_name"])
+#         # print("Last",user[0]["last_name"])
+#         # print(user)
+#         content = {
+#             "user": user,
+#             "first_name": user[0]["first_name"],
+#             "last_name": user[0]["last_name"]
+#         }
+#     return render(request, "log_reg/dashboard.html", content)
 
 def logout(request):
     request.session.clear()
@@ -63,6 +62,9 @@ def logacc(request):
         'email': request.POST['log-email']
         }
     user = mysql.query_db(query, data)
+    request.session['user_id'] = user[0]["id"]
+    print('////////////////////////////////////////')
+    print(request.session['user_id'])
     if (len(user) < 1):
         return redirect("/")
     else:
@@ -75,4 +77,4 @@ def logacc(request):
                 "last_name": user[0]["last_name"]
                 }
             request.session['logged'] = True
-            return render(request, "log_reg/dashboard.html", content)
+            return redirect('/dashboard')

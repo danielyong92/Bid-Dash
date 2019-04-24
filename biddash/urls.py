@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^', include('apps.dashboard.urls')), 
     url(r'^', include('apps.users.urls')),
     url(r'^', include('apps.log_reg.urls')),
+    url(r'^', include('apps.postjob.urls')),
 
 ]
