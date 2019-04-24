@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Job To Bid</title>
+    <link rel="stylesheet" href="{% static 'postjob/style.css' %}">
+</head>
+
+<body>
+    <table>
+        <form action="/btaddjob" method="POST">
+            {% csrf_token %}
+        
+        <tr>
+            <th>Job Title</th>
+            <td><input type="text" name="jobtitle"></td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td><select name="category">
+                    <option value="1">Online Jobs</option>
+                    <option value="2">Automotives</option>
+                    <option value="3">House</option>
+                    <option value="4">Pets</option>
+                  </select></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><textarea name="jobdescription"></textarea></td>
+        </tr>
+        <tr>
+            <th>Max Price</th>
+            <td><input type="text" name="maxprice"></td>
+        </tr>
+        <tr>
+            <th>End Time</th>
+            <td><input type="datetime-local" name="endtime"></td>
+        </tr>
+        <tr>
+            <th>Job Location</th>
+            <td><select name="location">
+                    <option value="1">Online</option>
+                    <option value="2">Chicago</option>
+                    <option value="3">Seattle</option>
+                    <option value="4">Dallas</option>
+                  </select></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add New Job"></td>
+        </tr>
+    </form>
+    </table>
+</body>
+
+</html>

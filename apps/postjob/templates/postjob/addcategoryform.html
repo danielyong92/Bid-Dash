@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Categories</title>
+    <link rel="stylesheet" href="{% static 'postjob/categories.css' %}">
+</head>
+<body>
+        <form action="/btaddcategory" method="POST">
+            {% csrf_token %}
+                Category name:<br>
+                <input type="text" name="categoryname"><br><br>
+                <input type="submit" value="Add New Category">
+              </form>
+</body>
+</html>

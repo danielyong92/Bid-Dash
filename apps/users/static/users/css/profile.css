@@ -1,0 +1,40 @@
+#container{
+    margin:auto;
+    width:90%;
+    padding: 15px;
+    box-shadow: 4px 4px 25px lightgray;
+    min-height: 700px;
+    border-radius: 20px;
+}
+#navigation{
+    background-color:#fccb4e;
+    padding: 10px;
+    text-align: right;
+    box-shadow: 5px 5px 3px black;
+}
+#job-content{
+    text-align: center;
+    border: 1px solid red;
+    margin-top: 20px;
+}
+#bid-content{
+    text-align: center;
+    border: 1px solid green;
+    margin-top: 20px;
+}
+.head-title{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 50%;
+}
+.logout{
+    display: inline-block;
+    vertical-align: top;
+}
+.icon2{
+    margin-left:35px;
+    margin-right:10px;
+    width: 23px;
+    height:23px;
+}
