@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from mysqlconnection import connectToMySQL
 
-def index(request):
+def login(request):
     return render(request, "log_reg/login.html")
 
 def signup(request):
@@ -35,14 +35,44 @@ def dashboard(request):
         return redirect("/")
     elif request.session['logged'] == True:
         mysql = connectToMySQL('bid_dash')
-        
-        iduser = request.session['user_id']
-        content = {
-            "user": mysql.query_db("SELECT * FROM users WHERE id=%(iduser)s"),
+        query = "SELECT * FROM users WHERE id=%(iduser)s;"
+        data = {
+        'iduser': request.session['user_id']
         }
-        
-        return render(request, "log_reg/dashboard.html", content)
+        user = mysql.query_db(query, data)
+        # print("First",user[0]["first_name"])
+        # print("Last",user[0]["last_name"])
+        # print(user)
+        content = {
+            "user": user,
+            "first_name": user[0]["first_name"],
+            "last_name": user[0]["last_name"]
+        }
+
+    return render(request, "log_reg/dashboard.html", content)
 
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+def logacc(request):
+    mysql = connectToMySQL('bid_dash')
+    # thisuser = mysql.query_db("SELECT * FROM users WHERE email=%(email)s;")
+    query = "SELECT * FROM users WHERE email=%(email)s;"
+    data = {
+        'email': request.POST['log-email']
+        }
+    user = mysql.query_db(query, data)
+    if (len(user) < 1):
+        return redirect("/")
+    else:
+        if not bcrypt.checkpw(request.POST['log-pw'].encode(), user[0]["password"].encode()):
+            return redirect("/")
+        else:
+            content = {
+                "user" : user,
+                "first_name": user[0]["first_name"],
+                "last_name": user[0]["last_name"]
+                }
+            request.session['logged'] = True
+            return render(request, "log_reg/dashboard.html", content)
