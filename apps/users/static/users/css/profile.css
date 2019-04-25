@@ -30,6 +30,10 @@
     text-align: left;
     width: 50%;
 }
+.home{
+    display: inline-block;
+    vertical-align: top;
+}
 .logout{
     display: inline-block;
     vertical-align: top;
