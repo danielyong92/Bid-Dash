@@ -6,4 +6,6 @@ urlpatterns = [
     url(r'^btaddjob$', views.BTaddjob),
     url(r'^newcategory$', views.addcategory),
     url(r'^btaddcategory$', views.BTaddcategory),
+    url(r'^newlocation$', views.addlocation),
+    url(r'^btaddlocation$', views.BTaddlocation),
 ]

@@ -8,13 +8,14 @@
         {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
-    
+        <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
     </head>
     <body>
         <div id="container">
 
             <div id="navigation">
                 <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4>
+                <a class="home" href="/dashboard">Home</a>
                 <a class="logout" href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
             </div>
     
