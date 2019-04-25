@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Bid Dash - Profile</title>
-        {% load static %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
-        <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
-    </head>
-    <body>
-        <div id="container">
 
-            <div id="navigation">
-                <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4>
-                <a class="home" href="/dashboard">Home</a>
-                <a class="logout" href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bid Dash - Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div id="container">
+        <div class="navigation">
+            <div id="top">
+                <a href="/dashboard"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <!-- <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4> -->
+                <a href="/newjob" id="newjob"><img class="icon2" src="{% static 'dashboard/images/add.png' %}">Add
+                    New
+                    Job</a>
+                <a href="/login"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+                <a href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
             </div>
-    
+            <div id="mid">
+                <form>
+                    <img class="icons" src="{% static 'homepage/images/edit.png' %}">
+                    <input type="text" name="category" class="search" placeholder="Enter what you are looking for">
+                    <img class="icons" src="{% static 'homepage/images/world.png' %}">
+                    <input type="text" name="location" class="search" placeholder="Please enter your location">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+        <!-- END HEADER -->
+        <div class="left">
+                <a href=""><img  id="edit" src="{% static 'users/images/pencil.png' %}"></a>
+                <img id="avatar" src="{% static 'dashboard/images/man2.png' %}">
+                <h1>{{user.first_name}} {{user.last_name}}</h1>
+                <p class="title">CEO & Founder, Example</p>
+                <p>Harvard University</p>
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a> 
+                <a href="#"><i class="fa fa-linkedin"></i></a> 
+                <a href="#"><i class="fa fa-facebook"></i></a> 
+                <p><button>Contact</button></p>
+        </div>
+
+
+        <div class="right">
             <div id="job-content">
-                <h5>Jobs Posted</h5>
+                <h5 class="post_title">Jobs Posted</h5>
                 {% if job_count > 0 %}
                 <table class="table table-striped table-bordered table-light">
                     <thead>
@@ -45,12 +79,12 @@
                     </tbody>
                 </table>
                 {% else %}
-                <h6>No Jobs Posted Yet - Click <a href="">Here</a> to post one</h6>
+                <h6>No Jobs Posted Yet - Click <a href="newjob">Here</a> to post one</h6>
                 {% endif %}
             </div>
 
             <div id="bid-content">
-                <h5>Bids Placed</h5>
+                <h5 class="post_title">Bids Placed</h5>
                 {% if bid_count > 0 %}
                 <table class="table table-striped table-bordered table-light">
                     <thead>
@@ -74,7 +108,11 @@
                 <h6>No Bids Placed Yet - Click <a href="">Here</a> to find job postings</h6>
                 {% endif %}
             </div>
-
         </div>
-    </body>
+
+
+
+    </div>
+</body>
+
 </html>
