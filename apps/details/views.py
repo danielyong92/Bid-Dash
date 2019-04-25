@@ -23,7 +23,8 @@ def jobdetails(request, job_id):
             "user": user[0],
             "job": job_details[0],
             "bids_count": len(bids_placed),
-            "bids": bids_placed
+            "bids": bids_placed,
+            "lowest_bid": bids_placed[0]['amount']
         }
 
     return render(request, "details/details.html", context)

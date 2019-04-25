@@ -7,7 +7,7 @@
         <title>Bid Dash - Details</title>
         {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'details/css/details.css' %}">
         <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
     </head>
     <body>
@@ -25,6 +25,7 @@
                 <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</label>
                 <p class="description">{{job.description}}<a href="">...See more</a></p>
                 <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price: ${{job.max_price}}</p>
+                <p><img class="icon2" src="{% static 'dashboard/images/affordable.png' %}">Lowest Bid: ${{lowest_bid}}</p>
                 {% if user.id != job.poster_id %}
                 <p id="creator">Posted By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}">{{job.first_name}} {{job.last_name}}</p>
                 <form action="/postbid" method="POST">
@@ -36,7 +37,7 @@
                 {% endif %}
             </div>
 
-            {% if user.id == job.poster_id %}   
+            {% if user.id == job.poster_id %}
             <div class="bid-content">
                 {% if bids_count > 0 %}
                 <table class="table table-striped table-bordered table-light">
