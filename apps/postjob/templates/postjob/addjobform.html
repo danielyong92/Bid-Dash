@@ -6,55 +6,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add New Job To Bid</title>
-    <link rel="stylesheet" href="{% static 'postjob/style.css' %}">
+    <title>New Job</title>
+    <link rel="stylesheet" href="{% static 'postjob/css/addjob.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <table>
-        <form action="/btaddjob" method="POST">
-            {% csrf_token %}
-        
-        <tr>
-            <th>Job Title</th>
-            <td><input type="text" name="jobtitle"></td>
-        </tr>
-        <tr>
-            <th>Category</th>
-            <td><select name="category">
-                    <option value="1">Online Jobs</option>
-                    <option value="2">Automotives</option>
-                    <option value="3">House</option>
-                    <option value="4">Pets</option>
-                  </select></td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td><textarea name="jobdescription"></textarea></td>
-        </tr>
-        <tr>
-            <th>Max Price</th>
-            <td><input type="text" name="maxprice"></td>
-        </tr>
-        <tr>
-            <th>End Time</th>
-            <td><input type="datetime-local" name="endtime"></td>
-        </tr>
-        <tr>
-            <th>Job Location</th>
-            <td><select name="location">
-                    <option value="1">Online</option>
-                    <option value="2">Chicago</option>
-                    <option value="3">Seattle</option>
-                    <option value="4">Dallas</option>
-                  </select></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Add New Job"></td>
-        </tr>
-    </form>
-    </table>
+    <div id="container">
+        <div class="navigation">
+            <div id="top">
+                <a href=""><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/newjob">Add New Job</a>
+                <a href="/login"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+            </div>
+            <div id="mid">
+                <form>
+                    <img class="icons" src="{% static 'homepage/images/edit.png' %}">
+                    <input type="text" name="category" class="search" placeholder="Enter what you are looking for">
+                    <img class="icons" src="{% static 'homepage/images/world.png' %}">
+                    <input type="text" name="location" class="search" placeholder="Please enter your location">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+               
+            <table>
+                <h3>New Job</h3>
+                <form action="/btaddjob" method="POST">
+                    {% csrf_token %}
+                    <tr>
+                        <th>Job Title</th>
+                        <td><input class="form-control" type="text" name="jobtitle"></td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td><select name="category">
+                                <option value="1">Online Jobs</option>
+                                <option value="2">Automotives</option>
+                                <option value="3">House</option>
+                                <option value="4">Pets</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea class="form-control" name="jobdescription"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Max Price</th>
+                        <td><input class="form-control" type="text" name="maxprice"></td>
+                    </tr>
+                    <tr>
+                        <th>End Time</th>
+                        <td><input type="datetime-local" class="form-control" name="endtime"></td>
+                    </tr>
+                    <tr>
+                        <th>Job Location</th>
+                        <td><select name="location">
+                                <option value="1">Online</option>
+                                <option value="2">Chicago</option>
+                                <option value="3">Seattle</option>
+                                <option value="4">Dallas</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Add New Job" class="btn btn-primary"></td>
+                    </tr>
+                    
+                </form>
+                
+            </table>
+            <img class="undraw" src="{% static 'postjob/images/undraw1.png' %}" />
+        </div>
+
+    </div>
 </body>
 
 </html>
