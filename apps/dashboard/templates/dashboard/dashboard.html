@@ -49,14 +49,13 @@
             {% for job in jobs %}
             <div class="content">
                 <img class="icon1" src="{% static 'dashboard/images/clipboard.png' %}">
-                <a href="">{{job.title}}</a>
+                <a href="/details/{{job.id}}">{{job.title}}</a>
                 <label id="timeleft"><img class="icon2"
                         src="{% static 'dashboard/images/hourglass.png' %}">Bidding Ends: {{job.end_datetime}}</label>
                 <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</label>
                 <p class="description">{{job.description}}<a href="">...See more</a></p>
                 <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price: ${{job.max_price}}</p>
                 <p id="creator">By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}"><a href="">{{job.first_name}} {{job.last_name}}</a></p>
-                <button>BID!</button>
             </div>
             {% endfor %}
             <!-- END CONTENT -->

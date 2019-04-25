@@ -1,12 +1,11 @@
 from django.shortcuts import render, HttpResponse
 from mysqlconnection import connectToMySQL
 from django.contrib.auth import login, authenticate
-import bcrypt
 
 def profile(request):
-    if request.session['logged'] == False:
+    if 'user_id' not in request.session:
         return redirect("/")
-    elif request.session['logged'] == True:
+    else:
         mysql = connectToMySQL('bid_dash')
 
         data = {'user_id': request.session['user_id']}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bid Dash - Details</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+        <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
+    </head>
+    <body>
+        <div id="container">
+
+            <div id="navigation">
+                <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4>
+                <a class="home" href="/dashboard">Home</a>
+                <a class="logout" href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
+            </div>
+
+            <h5>{{job.title}}</h5>
+            <div class="job-content">
+                <label id="timeleft"><img class="icon2" src="{% static 'dashboard/images/hourglass.png' %}">Bidding Ends: {{job.end_datetime}}</label>
+                <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</label>
+                <p class="description">{{job.description}}<a href="">...See more</a></p>
+                <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price: ${{job.max_price}}</p>
+                {% if user.id != job.poster_id %}
+                <p id="creator">Posted By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}">{{job.first_name}} {{job.last_name}}</p>
+                <form action="/postbid" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="job_id" value="{{job.job_id}}">
+                    <input type="hidden" name="poster_id" value="{{job.poster_id}}">
+                    <input type="text" name="bid_amt" required><input type="submit" value="BID!">
+                </form>
+                {% endif %}
+            </div>
+
+            {% if user.id == job.poster_id %}   
+            <div class="bid-content">
+                {% if bids_count > 0 %}
+                <table class="table table-striped table-bordered table-light">
+                    <thead>
+                        <tr>
+                            <th>Chosen Bid</th>
+                            <th>Amount</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bid in bids %}
+                        <tr>
+                            {% if bid.chosen_bid == 1 %}
+                            <td>*</td>
+                            {% else %}
+                            <td><a href="/choosebid/{{job.job_id}}/{{bid.id}}">Choose Bid</a></td>
+                            {% endif %}
+                            <td>{{bid.amount}}</td>
+                            <td>{{bid.rating}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h6>No Bids Placed Yet</h6>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+    </body>
+</html>

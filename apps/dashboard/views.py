@@ -5,22 +5,23 @@ from mysqlconnection import connectToMySQL
 
 
 def dashboard(request):
-    if request.session['logged'] == False:
-        return redirect("/")
-    elif request.session['logged'] == True:
+    if 'user_id' not in request.session:
         mysql = connectToMySQL('bid_dash')
-        query = "SELECT * FROM users WHERE id=%(iduser)s;"
+        jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id ORDER BY j.end_datetime;')
+        content = {
+            "jobs": jobs
+        }
+    else:
+        mysql = connectToMySQL('bid_dash')
         data = {
         'iduser': request.session['user_id']
         }
-        user = mysql.query_db(query, data)
+        user = mysql.query_db("SELECT * FROM users WHERE id=%(iduser)s;", data)
         # print("First",user[0]["first_name"])
         # print("Last",user[0]["last_name"])
         # print(user)
-
         mysql = connectToMySQL('bid_dash')
-        jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id ORDER BY j.end_datetime;', data)
-
+        jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id ORDER BY j.end_datetime;')
         content = {
             "user": user,
             "first_name": user[0]["first_name"],
