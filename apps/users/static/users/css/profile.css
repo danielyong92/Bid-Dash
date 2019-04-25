@@ -109,7 +109,8 @@
     margin-left: 40px;
 }
 .right{
-    border: 2px solid gray;
+    padding: 15px;
+    /* border: 2px solid gray; */
     margin-left: 30px;
     vertical-align: top;
     display: inline-block;
@@ -131,6 +132,9 @@
     background-color:#fccb4e;
 }
 
+#newjob{
+    margin-left: 875px;
+}
 /* CSS */
 .title {
     color: grey;

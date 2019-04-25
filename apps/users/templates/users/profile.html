@@ -69,9 +69,9 @@
                     <tbody>
                         {% for job in jobs %}
                         <tr>
-                            <td>{{job.title}}</td>
+                            <td><a href="/details/{{job.id}}">{{job.title}}</a></td>
                             <td>{{job.description}}</td>
-                            <td>{{job.max_price}}</td>
+                            <td>${{job.max_price}}</td>
                             <td>{{job.start_datetime}}</td>
                             <td>{{job.end_datetime}}</td>
                         </tr>

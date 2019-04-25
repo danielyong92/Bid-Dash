@@ -64,6 +64,7 @@
     height:20px;
 }
 .content{
+    text-align: center;
     padding: 20px;
     width: 30%;
     margin:auto;
@@ -75,8 +76,13 @@ h3{
     text-align: center;
 }
 .undraw{
-    margin-left: 180px;
     vertical-align:top;
     width: 220px;
     height: 150px;
+}
+#newjob{
+    margin-left: 875px;
+}
+.form-control{
+    margin-bottom: 15px;
 }

@@ -73,6 +73,11 @@
     height: 35px;
 }
 .icon2{
+    margin-left: 20px;
+    width:20px;
+    height:20px;
+}
+.icon3{
     width:20px;
     height:20px;
 }
@@ -117,4 +122,10 @@
     margin-left: 50px;
     margin-top: 300px;
 }
+#newjob{
+    margin-left: 700px;
+}
 
+span{
+    color:red;
+}
