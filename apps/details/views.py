@@ -19,12 +19,17 @@ def jobdetails(request, job_id):
         data = {'job_id': job_id}
         bids_placed = mysql.query_db('SELECT b.id, b.amount, b.chosen_bid, b.users_id AS bidder_id, u.first_name, u.last_name, u.rating, b.created_at FROM bids b JOIN users u ON b.users_id = u.id WHERE jobs_id = %(job_id)s ORDER BY amount;', data)
 
+        if len(bids_placed) < 1:
+            low_bid = "No Bids"
+        else:
+            low_bid = bids_placed[0]['amount']
+
         context = {
             "user": user[0],
             "job": job_details[0],
             "bids_count": len(bids_placed),
             "bids": bids_placed,
-            "lowest_bid": bids_placed[0]['amount']
+            "lowest_bid": low_bid
         }
 
     return render(request, "details/details.html", context)
