@@ -66,10 +66,10 @@ def logacc(request):
     print('////////////////////////////////////////')
     print(request.session['user_id'])
     if (len(user) < 1):
-        return redirect("/")
+        return redirect("/login")
     else:
         if not bcrypt.checkpw(request.POST['log-pw'].encode(), user[0]["password"].encode()):
-            return redirect("/")
+            return redirect("/login")
         else:
             content = {
                 "user" : user,
