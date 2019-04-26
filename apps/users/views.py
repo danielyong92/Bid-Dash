@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse
 from mysqlconnection import connectToMySQL
 from django.contrib.auth import login, authenticate
 
