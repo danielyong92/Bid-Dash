@@ -1,40 +1,126 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 #container{
     margin:auto;
-    width:90%;
-    padding: 15px;
-    box-shadow: 4px 4px 25px lightgray;
+    /* padding: 15px; */
     min-height: 700px;
-    border-radius: 20px;
+    /* width:90%;
+    box-shadow: 4px 4px 25px lightgray;
+    border-radius: 20px; */
 }
-#navigation{
-    background-color:#fccb4e;
+.link{
+    color:darkblue;
+}
+.link:hover{
+    font-weight:bold;
+    font-size:105%;
+    text-decoration:none;
+    position:relative;
+}
+#logo{
+    width:80px;
+    height: 80px;
+    margin-right: 50px;
+}
+#logo:hover{
+    transform: scale(1.1);
+    opacity: .8;
+}
+.category_icon{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 25px;
+    height:25px;
+}
+.navigation{
+    top:0;
+    width: 100%;
+}
+a{
+    color:darkblue;
+}
+#mid{
     padding: 10px;
-    text-align: right;
-    box-shadow: 5px 5px 3px black;
+    background-color:#fccb4e;
+    min-height: 20px;
+    border-top: 1px solid black;
+    box-shadow: 1px 1px 3px black;
+    margin-bottom: 20px;
 }
-#job-content{
-    text-align: center;
-    border: 1px solid #fccb4e;
-    box-shadow: 5px 5px 3px black;
-    margin-top: 20px;
+.icons{
+    width: 25px;
+    height: 25px;
 }
-.head-title{
+.search{
+    width: 400px;
+    border-radius: 10px;    
+    height: 30px;
+    border:none;
+    background-color: #f7f7f7;
+    /* box-shadow: 3px 3px 3px black; */
+    padding: 15px;
+    font-size: 80%;
     display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    width: 50%;
 }
-.home{
-    display: inline-block;
-    vertical-align: top;
+.search:focus{
+    outline:none;
+    box-shadow: 5px 5px 5px grey;
 }
-.logout{
-    display: inline-block;
-    vertical-align: top;
+.search:hover{
+    box-shadow: 5px 5px 5px darkgrey;
+}
+.icon1{
+    width: 35px;
+    height: 35px;
 }
 .icon2{
-    margin-left:35px;
-    margin-right:10px;
-    width: 23px;
-    height:23px;
+    margin-left: 20px;
+    width:20px;
+    height:20px;
+}
+.icon3{
+    width:20px;
+    height:20px;
+}
+#newjob{
+    margin-left: 500px;
+}
+/* END HEADER */
+.content{
+    padding: 15px;
+    /* border: 2px solid grey; */
+}
+.description{
+    margin-top: 50px;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius:15px;
+    box-shadow: 3px 3px 3px black;
+    margin-bottom: 20px;
+}
+.undraw{
+    position:absolute;
+    width: 300px;
+    z-index:-1;
+    right:-600px;
+    animation: slideright 1s forwards;
+    /* animation-delay: .25s; */
+}
+@keyframes slideright {
+    100% { right: 30px; }
+}
+span{
+    color:red;
+}
+.job-content{
+    margin-top: 30px;
+    padding-left: 30px;
+    color: darkgreen;
+}
+.text{
+    color: darkblue;
+}
+h3{
+    color: darkblue;
 }

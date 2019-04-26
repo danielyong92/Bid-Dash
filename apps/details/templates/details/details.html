@@ -1,41 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Bid Dash - Details</title>
-        {% load static %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'details/css/details.css' %}">
-        <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
-    </head>
-    <body>
-        <div id="container">
 
-            <div id="navigation">
-                <h4 class="head-title">Welcome, {{user.first_name}} {{user.last_name}}</h4>
-                <a class="home" href="/dashboard">Home</a>
-                <a class="logout" href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bid Dash - Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'details/css/details.css' %}">
+    <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
+</head>
+
+<body>
+    <div id="container">
+        <div class="navigation">
+            <div id="top">
+                <a href="/dashboard" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/newjob" id="newjob" class="link"><img class="icon2" src="{% static 'dashboard/images/add.png' %}">Add
+                    New
+                    Job</a>
+                <a href="/login" class="link"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup" class="link"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+                <a href="/logout" class="link"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
             </div>
+            <div id="mid">
+                <form>
+                    <img class="icons" src="{% static 'homepage/images/edit.png' %}">
+                    <input type="text" name="category" class="search" placeholder="Enter what you are looking for">
+                    <img class="icons" src="{% static 'homepage/images/world.png' %}">
+                    <input type="text" name="location" class="search" placeholder="Please enter your location">
+                    <input type="submit" class="btn btn-success" value="Search">
+                </form>
+            </div>
+        </div>
 
-            <h5>{{job.title}}</h5>
+        <img class="undraw" src="{% static 'details/images/undraw.png' %}">
+
+        <div class="content">
+            <h3>Job: {{job.title}}</h3>
             <div class="job-content">
-                <label id="timeleft"><img class="icon2" src="{% static 'dashboard/images/hourglass.png' %}">Bidding Ends: {{job.end_datetime}}</label>
-                <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</label>
-                <p class="description">{{job.description}}<a href="">...See more</a></p>
-                <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price: ${{job.max_price}}</p>
-                <p><img class="icon2" src="{% static 'dashboard/images/affordable.png' %}">Lowest Bid: ${{lowest_bid}}</p>
+                <p id="timeleft"><img class="icon2" src="{% static 'dashboard/images/hourglass.png' %}">Bidding
+                    Ends: <span>{{job.end_datetime}}</span></p>
+                <p id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} |
+                    Location</p>
+                <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price:
+                    ${{job.max_price}}</p>
+                <p><img class="icon2" src="{% static 'dashboard/images/affordable.png' %}">Lowest Bid: ${{lowest_bid}}
+                </p>
+            </div>
+                <div class="description">
+                    <h5><img class="icon3" src="{% static 'details/images/document.png' %}">Description:</h5>
+                    <p class="text">{{job.description}}</p>
+                </div>
                 {% if user.id != job.poster_id %}
-                <p id="creator">Posted By:<img class="icon2" src="{% static 'dashboard/images/man2.png' %}">{{job.first_name}} {{job.last_name}}</p>
+                <p id="creator">Posted By:<img class="icon2"
+                        src="{% static 'dashboard/images/man2.png' %}">{{job.first_name}} {{job.last_name}}</p>
                 <form action="/postbid" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="job_id" value="{{job.job_id}}">
                     <input type="hidden" name="poster_id" value="{{job.poster_id}}">
-                    <input type="text" name="bid_amt" required><input type="submit" value="BID!">
+                    <input type="text" name="bid_amt" required><input type="submit" value="BID!" class="btn btn-danger">
                 </form>
                 {% endif %}
-            </div>
+            
 
             {% if user.id == job.poster_id %}
             <div class="bid-content">
@@ -67,7 +96,13 @@
                 {% endif %}
             </div>
             {% endif %}
-
         </div>
-    </body>
+
+
+
+
+
+    </div>
+</body>
+
 </html>

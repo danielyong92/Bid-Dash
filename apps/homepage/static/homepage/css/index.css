@@ -1,23 +1,15 @@
-*{
- /* border: 1px dotted black; */
-}
-body{
-    /* padding-top: 40px; */
-}
+
 #container{
+    width:100%;
     margin:auto;
     /* width:90%; */
-    padding: 15px;
-    box-shadow: 4px 4px 25px lightgray;
-    min-height: 700px;
-    border-radius: 20px;
+    /* padding: 15px; */
 }
 #navigation{
     background-color:#fccb4e;
     padding: 10px;
     text-align: right;
     box-shadow: 5px 5px 3px black;
-
 }
 #log_btn{
     /* opacity: 0.7; */
@@ -61,8 +53,12 @@ body{
     /* margin-top: 20px; */
 }
 #logo{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+}
+#logo:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
 }
 .search{
     width: 400px;
@@ -101,23 +97,29 @@ body{
     font-size: 150%;
     border-radius: 15px;
 }
-/* .undraw{
-    margin-top:10px;
-    width: 300px;
-    height: 300px;
-    text-align: right;
-    animation-name: slideIn;
-    animation-duration: 1s;
-    display: inline-block;
+.undraw1{
+    position:fixed;
+    z-index: -1;
+    width: 420px;
+    height:230px;
+    top: 135px;
+    left: -400px;
+    animation: slideleft 1.25s forwards;
+    animation-delay: .25s;
 }
-@keyframes slideIn {
-    0% {
-      transform: translateX(900px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  } */
+@keyframes slideleft {
+    100% { left: 440px; }
+}
+
+#description{
+    margin-top: 120px;
+}
+.mid_logo{
+    display:inline-block;
+    margin:auto;
+    width: 800px;
+    /* border: 1px solid black; */
+}
 
   #categories{
     /* border: 1px solid black; */
@@ -136,14 +138,17 @@ body{
       text-align: center;
   }
   .category_block{
+    border-radius: 50%;
       padding:15px;
       text-align: center;
-      width: 100px;
+      width: 110px;
       display: inline-block;
   }
   .category_block:hover{
+    transform: scale(1.2);
     transition: 0.4s;
-   background-color: #fccb4e;
+    border-radius: 50%;
+   /* background-color: #fccb4e; */
    box-shadow: 3px 3px 15px black;
   }
 
