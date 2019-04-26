@@ -4,7 +4,10 @@ from django.contrib import messages
 from datetime import datetime
 
 def postnewjob(request):
-    return render(request, "postjob/addjobform.html")
+    if 'user_id' not in request.session:
+        return redirect("/")
+    else:
+        return render(request, "postjob/addjobform.html")
 
 def BTaddjob(request):
     mysql = connectToMySQL('bid_dash')
@@ -23,7 +26,10 @@ def BTaddjob(request):
     return redirect("/dashboard")
 
 def addcategory(request):
-    return render(request, "postjob/addcategoryform.html")
+    if 'user_id' not in request.session:
+        return redirect("/")
+    else:
+        return render(request, "postjob/addcategoryform.html")
 
 def BTaddcategory(request):
     mysql = connectToMySQL('bid_dash')
@@ -35,7 +41,10 @@ def BTaddcategory(request):
     return redirect("/dashboard")
 
 def addlocation(request):
-    return render(request, "postjob/addlocation.html")
+    if 'user_id' not in request.session:
+        return redirect("/")
+    else:
+        return render(request, "postjob/addlocation.html")
 
 def BTaddlocation(request):
     mysql = connectToMySQL('bid_dash')

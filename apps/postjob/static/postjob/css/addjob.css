@@ -70,6 +70,7 @@
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 3px 3px 3px gray;
+    margin-bottom: 30px;
 }
 textarea{
     height: 100px;
