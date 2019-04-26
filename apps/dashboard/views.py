@@ -9,7 +9,8 @@ def dashboard(request):
         mysql = connectToMySQL('bid_dash')
         jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id ORDER BY j.end_datetime;')
         content = {
-            "jobs": jobs
+            "jobs": jobs,
+            "jobs_count": len(jobs)
         }
     else:
         mysql = connectToMySQL('bid_dash')
@@ -24,7 +25,8 @@ def dashboard(request):
             "user": user,
             "first_name": user[0]["first_name"],
             "last_name": user[0]["last_name"],
-            "jobs": jobs
+            "jobs": jobs,
+            "jobs_count": len(jobs)
         }
     return render(request, "dashboard/dashboard.html", content)
 
@@ -36,7 +38,8 @@ def dashboard_cat(request,cat_id):
         }
         jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id WHERE category_id = %(cat_id)s ORDER BY j.end_datetime;',data)
         content = {
-            "jobs": jobs
+            "jobs": jobs,
+            "jobs_count": len(jobs)
         }
     else:
         mysql = connectToMySQL('bid_dash')
@@ -54,6 +57,7 @@ def dashboard_cat(request,cat_id):
             "user": user,
             "first_name": user[0]["first_name"],
             "last_name": user[0]["last_name"],
-            "jobs": jobs
+            "jobs": jobs,
+            "jobs_count": len(jobs)
         }
     return render(request, "dashboard/dashboard.html", content)
