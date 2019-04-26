@@ -31,7 +31,10 @@ def dashboard(request):
 def dashboard_cat(request,cat_id):
     if 'user_id' not in request.session:
         mysql = connectToMySQL('bid_dash')
-        jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id ORDER BY j.end_datetime;')
+        data = {
+            'cat_id': cat_id
+        }
+        jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id WHERE category_id = %(cat_id)s ORDER BY j.end_datetime;',data)
         content = {
             "jobs": jobs
         }
@@ -46,9 +49,7 @@ def dashboard_cat(request,cat_id):
         data = {
             'cat_id': cat_id
         }
-        print('CAT ID:', cat_id)
         jobs = mysql.query_db('SELECT j.*, a.city, u.first_name, u.last_name FROM jobs j JOIN addresses a ON j.addresses_id = a.id JOIN users u ON j.users_id = u.id WHERE category_id = %(cat_id)s ORDER BY j.end_datetime;',data)
-        print('ALL JOBS:',jobs)
         content = {
             "user": user,
             "first_name": user[0]["first_name"],
