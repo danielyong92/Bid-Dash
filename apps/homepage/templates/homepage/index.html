@@ -23,8 +23,11 @@
         </div>
 
         <div id="mid-content">
+        
             <a href="dashboard"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-            <p>The World's Best Bidding Website. Get Biddin and Get Smashin!</p>
+            <p><img class="undraw1" src="{% static 'homepage/images/undraw.png' %}"></p>
+            <p id="description">The World's Best Bidding Website. Get Biddin and Get Smashin!</p>
+            
             <form action="/search" method="GET">
                 <img class="icons" src="{% static 'homepage/images/edit.png' %}">
                 <input type="text" name="searchbox" class="search" placeholder="Enter what you are looking for">
@@ -62,7 +65,7 @@
 
             <div class="category_block">
                 <a href="/dashboard/cat/6"><img class="cat_img" src="{% static 'homepage/images/camera.png' %}"><br>
-                    <label>Photography</label>
+                    <label>Photograph</label>
                 </a>
             </div>
 

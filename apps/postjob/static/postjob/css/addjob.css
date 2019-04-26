@@ -21,8 +21,6 @@
     height:25px;
 }
 .navigation{
-    padding: 5px;
-    /* position:fixed; */
     width: 100%;
     /* box-shadow: 5px 5px 3px black; */
 }
@@ -30,6 +28,7 @@
     padding: 10px;
     background-color:#fccb4e;
     min-height: 20px;
+    border-top: 1px solid black;
     box-shadow: 1px 1px 1px black;
     margin-bottom: 20px;
 }
@@ -66,11 +65,15 @@
 .content{
     text-align: center;
     padding: 20px;
-    width: 30%;
+    width: 500px;
     margin:auto;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 3px 3px 3px gray;
+}
+textarea{
+    height: 100px;
+    width:100%;
 }
 h3{
     text-align: center;
@@ -82,7 +85,6 @@ h3{
 }
 #newjob{
     margin-left: 875px;
-}
-.form-control{
-    margin-bottom: 15px;
+}.input{
+    margin:20px;
 }

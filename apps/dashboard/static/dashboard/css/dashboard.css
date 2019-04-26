@@ -2,7 +2,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 #container{
-    
     margin:auto;
     /* padding: 15px; */
     min-height: 700px;
@@ -10,9 +9,23 @@
     box-shadow: 4px 4px 25px lightgray;
     border-radius: 20px; */
 }
+.link{
+    color:darkblue;
+}
+.link:hover{
+    font-weight:bold;
+    font-size:105%;
+    text-decoration:none;
+    position:relative;
+}
 #logo{
-    width:100px;
-    height: 100px;
+    width:80px;
+    height: 80px;
+    margin-right: 50px;
+}
+#logo:hover{
+    transform: scale(1.1);
+    opacity: .8;
 }
 .category_icon{
     margin-left: 10px;
@@ -21,17 +34,16 @@
     height:25px;
 }
 .navigation{
-    padding: 5px;
-    /* position:fixed; */
+    top:0;
     width: 100%;
     /* box-shadow: 5px 5px 3px black; */
 }
-
 #mid{
     padding: 10px;
     background-color:#fccb4e;
     min-height: 20px;
-    box-shadow: 1px 1px 1px black;
+    border-top: 1px solid black;
+    box-shadow: 1px 1px 3px black;
     margin-bottom: 20px;
 }
 .icons{
@@ -57,12 +69,16 @@
     box-shadow: 5px 5px 5px darkgrey;
 }
 .content{
+    width: 730px;
     vertical-align: top;
     padding: 15px;
     margin-bottom:25px;
     margin-left:25px;
     /* margin:auto; */
     box-shadow: 4px 4px 4px gray;
+    background-color:white;
+    border: 1px solid grey;
+    border-radius: 5px;
 }
 .content:hover{
     transform: scale(1.01);
@@ -86,8 +102,9 @@
     float:right;
 }
 #timeleft{
-    margin-left: 50px;
-   
+    float:right;
+    /* margin-left: 50px; */
+
 }
 #creator{
     text-align: right;
@@ -115,15 +132,35 @@
     vertical-align: top;
 }
 .undraw{
-    position: absolute;
-    vertical-align:top;
+    position: fixed;
+    z-index: -1;
     width: 330px;
     height: 250px;
-    margin-left: 50px;
-    margin-top: 300px;
+    bottom: 0;
+    right:-600px;
+    animation: slideright 1s forwards;
+    animation-delay: .4s;
 }
+@keyframes slideright {
+    100% { right: 0; }
+}
+
+.undraw2{
+    position: fixed;
+    width: 330px;
+    height: 250px;
+    bottom: 0;
+    left: -600px;
+    animation: slideleft 1s forwards;
+    /* animation-delay: .25s; */
+}
+
+@keyframes slideleft {
+    100% { left: 0; }
+}
+
 #newjob{
-    margin-left: 700px;
+    margin-left: 500px;
 }
 
 span{

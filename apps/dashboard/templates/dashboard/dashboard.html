@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -17,14 +18,14 @@
     <div id="container">
         <div class="navigation">
             <div id="top">
-                <a href=""><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                <label>Welcome {{first_name}} - {{last_name}}!</label>
-                <a href="/newjob" id="newjob"><img class="icon2" src="{% static 'dashboard/images/add.png' %}">Add
+                <a href="#" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <label>Welcome <a href="profile" class="link">{{first_name}} - {{last_name}}!</a></label>
+                <a href="/newjob" id="newjob" class="link"><img class="icon2" src="{% static 'dashboard/images/add.png' %}">Add
                     New
                     Job</a>
-                <a href="/login"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
-                <a href="/signup"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
-                <a href="/logout"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
+                <a href="/login" class="link"><img class="icon2" src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup" class="link"><img class="icon2" src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+                <a href="/logout" class="link"><img class="icon2" src="{% static 'users/images/logout.png' %}" />Logout</a>
             </div>
             <div id="mid">
                 <form>
@@ -32,20 +33,21 @@
                     <input type="text" name="category" class="search" placeholder="Enter what you are looking for">
                     <img class="icons" src="{% static 'homepage/images/world.png' %}">
                     <input type="text" name="location" class="search" placeholder="Please enter your location">
-                    <input type="submit" value="Search">
+                    <input class="btn btn-success" type="submit" value="Search">
                 </form>
             </div>
         </div>
 
         <div class="left">
             <h4>123+ Job Listings found...</h4>
-            <p><a href="/newjob"><img class="category_icon" src="{% static 'dashboard/images/add.png' %}">Add New
+            <p><a href="/newjob" class="link"><img class="category_icon" src="{% static 'dashboard/images/add.png' %}">Add New
                 Job</a></p>
-            <p><a href=""><img class="category_icon" src="{% static 'dashboard/images/house2.png' %}">Home</a></p>
+            <p><a href="/" class="link"><img class="category_icon" src="{% static 'dashboard/images/house2.png' %}">Home</a></p>
 
-            <p><a href="profile"><img class="category_icon" src="{% static 'dashboard/images/user.png' %}">Profile</a></p>
+            <p><a href="profile" class="link"><img class="category_icon" src="{% static 'dashboard/images/user.png' %}">Profile</a></p>
 
-            <p><a href=""><img class="category_icon" src="{% static 'dashboard/images/grid.png' %}">Categories</a></p>
+            <p><a href="#" class="link"><img class="category_icon" src="{% static 'dashboard/images/grid.png' %}">Categories</a></p>
+            <img class="undraw2" src="{% static 'dashboard/images/undraw2.png' %}">
         </div>
 
         <div class="middle">
@@ -56,7 +58,7 @@
                 <a href="/details/{{job.id}}">{{job.title}}</a>
                 <label id="timeleft"><img class="icon2"
                         src="{% static 'dashboard/images/hourglass.png' %}">Bidding Ends: <span>{{job.end_datetime}}</span></label>
-                <label id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</label>
+                <p id="location"><img class="icon2" src="{% static 'dashboard/images/placeholder.png' %}">{{job.city}} | Location</p>
                 <p class="description">{{job.description}}<a href="">...See more</a></p>
                 <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Bid: ${{job.max_price}}</p>
                 <p id="creator">By:<img class="icon3" src="{% static 'dashboard/images/man2.png' %}"><a href="">{{job.first_name}} {{job.last_name}}</a></p>
