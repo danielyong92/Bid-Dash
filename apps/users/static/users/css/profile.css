@@ -93,7 +93,7 @@
     text-align: center;
     border: 1px solid #fccb4e;
     box-shadow: 5px 5px 3px black;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 #bid-content{
     text-align: center;
@@ -121,12 +121,12 @@
     margin-left: 40px;
 }
 .right{
-    padding: 15px;
+    /* padding: 15px; */
     /* border: 2px solid gray; */
     margin-left: 30px;
     vertical-align: top;
     display: inline-block;
-    width: 55%;
+    width: 880px;
 }
 
 #avatar{
@@ -146,6 +146,10 @@
 
 #newjob{
     margin-left: 650px;
+}
+
+.time{
+    width: 140px;
 }
 /* CSS */
 .title {
