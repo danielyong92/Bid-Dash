@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BIDDASH - Dashboard</title>
     {% load static %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../../static/users/images/favicon.png">
@@ -20,27 +21,24 @@
             {% if request.session.logged == True %}
 
             <div id="top">
-                <a href="/" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                <label>Welcome <a href="profile" class="link">{{first_name}} {{last_name}}</a></label>
+                <a href="/dashboard" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/logout" id="newjob" class="link"><img class="icon2"
+                        src="{% static 'users/images/logout.png' %}" />Logout</a>
                 <a href="/newjob" id="newjob" class="link"><img class="icon2"
-                        src="{% static 'dashboard/images/add.png' %}">Add
+                        src="{% static 'dashboard/images/add.png' %}"> Add
                     New
                     Job</a>
-                <a href="/logout" class="link"><img class="icon2"
-                        src="{% static 'users/images/logout.png' %}" />Logout</a>
+                <label id="newjob">Welcome <a href="profile" class="link">{{first_name}} {{last_name}}</a></label>
             </div>
-
             {% else %}
-
             <div id="top">
-                <a href="/" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                <label>Welcome to Bid Dash</a></label>
-                <a href="/login" class="link"><img class="icon2"
+                <a href="/dashboard" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/login" id="newjob" class="link"><img class="icon2"
                         src="{% static 'homepage/images/login.png' %}" />Login</a>
-                <a href="/signup" class="link"><img class="icon2"
+                <a href="/signup" id="newjob" class="link"><img class="icon2"
                         src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+                        <label id="newjob">Welcome to Bid Dash</a></label>
             </div>
-
             {% endif %}
 
             <div id="mid">
@@ -54,7 +52,7 @@
             </div>
         </div>
         <div class="left">
-            <h4>123+ Job Listings found...</h4>
+            <h4>26+ Job listings found...</h4>
             <p><a href="/newjob" class="link"><img class="category_icon"
                         src="{% static 'dashboard/images/add.png' %}">Add New
                     Job</a></p>

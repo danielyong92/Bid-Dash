@@ -20,13 +20,14 @@
 
                 <div id="top">
                     <a href="/" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                    <label>Welcome <a href="profile" class="link">{{first_name}} {{last_name}}</a></label>
+                    <div id="linkheader">
                     <a href="/newjob" id="newjob" class="link"><img class="icon2"
                             src="{% static 'dashboard/images/add.png' %}">Add
                         New
                         Job</a>
                     <a href="/logout" class="link"><img class="icon2"
                             src="{% static 'users/images/logout.png' %}" />Logout</a>
+                        </div>
                 </div>
     
                 {% else %}
@@ -63,7 +64,7 @@
                     Location</p>
                 <p><img class="icon2" src="{% static 'dashboard/images/money-bag.png' %}">Starting Price:
                     ${{job.max_price}}</p>
-                <p><img class="icon2" src="{% static 'dashboard/images/affordable.png' %}">Lowest Bid: ${{lowest_bid}}
+                <p><img class="icon2" src="{% static 'dashboard/images/affordable.png' %}">Lowest Bid: {{lowest_bid}}
                 </p>
             </div>
                 <div class="description">
@@ -98,11 +99,11 @@
                         {% for bid in bids %}
                         <tr>
                             {% if bid.chosen_bid == 1 %}
-                            <td>*</td>
+                            <td>Approved</td>
                             {% else %}
                             <td><a href="/choosebid/{{job.job_id}}/{{bid.id}}">Choose Bid</a></td>
                             {% endif %}
-                            <td>{{bid.amount}}</td>
+                            <td>${{bid.amount}}</td>
                             <td>{{bid.first_name}} {{bid.last_name}}</td>
                             <td>{{bid.rating}}</td>
                         </tr>
