@@ -13,6 +13,7 @@
 #logo{
     width:100px;
     height: 100px;
+    margin-left: 30px;
 }
 .category_icon{
     margin-left: 10px;
@@ -85,7 +86,10 @@ h3{
     height: 150px;
 }
 #newjob{
-    margin-left: 875px;
-}.input{
+    /* margin-left: 500px; */
+    float: right;
+    padding: 20px 10px;
+}
+.input{
     margin:20px;
 }

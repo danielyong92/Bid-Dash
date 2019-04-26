@@ -17,29 +17,26 @@
         <div class="navigation">
                 {% if request.session.logged == True %}
 
-                <div id="top">
-                    <a href="/" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                    <!-- <label>Welcome <a href="profile" class="link">{{first_name}} {{last_name}}</a></label> -->
-                    <a href="/newjob" id="newjob" class="link"><img class="icon2"
-                            src="{% static 'dashboard/images/add.png' %}">Add
-                        New
-                        Job</a>
-                    <a href="/logout" class="link"><img class="icon2"
-                            src="{% static 'users/images/logout.png' %}" />Logout</a>
-                </div>
-    
-                {% else %}
-    
-                <div id="top">
-                    <a href="/" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
-                    <label>Welcome to Bid Dash</a></label>
-                    <a href="/login" class="link"><img class="icon2"
-                            src="{% static 'homepage/images/login.png' %}" />Login</a>
-                    <a href="/signup" class="link"><img class="icon2"
-                            src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
-                </div>
-    
-                {% endif %}
+            <div id="top">
+                <a href="/dashboard" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/logout" id="newjob" class="link"><img class="icon2"
+                        src="{% static 'users/images/logout.png' %}" />Logout</a>
+                <a href="/newjob" id="newjob" class="link"><img class="icon2"
+                        src="{% static 'dashboard/images/add.png' %}"> Add
+                    New
+                    Job</a>
+                <!-- <label id="newjob">Welcome <a href="profile" class="link">{{first_name}} {{last_name}}</a></label> -->
+            </div>
+            {% else %}
+            <div id="top">
+                <a href="/dashboard" class="link"><img id="logo" src="{% static 'dashboard/images/logo2.png' %}"></a>
+                <a href="/login" id="newjob" class="link"><img class="icon2"
+                        src="{% static 'homepage/images/login.png' %}" />Login</a>
+                <a href="/signup" id="newjob" class="link"><img class="icon2"
+                        src="{% static 'homepage/images/padlock.png' %}" />Signup</a>
+                        <label id="newjob">Welcome to Bid Dash</a></label>
+            </div>
+            {% endif %}
             <div id="mid">
                 <form>
                     <img class="icons" src="{% static 'homepage/images/edit.png' %}">
